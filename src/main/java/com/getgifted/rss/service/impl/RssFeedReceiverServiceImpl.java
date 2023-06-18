@@ -7,6 +7,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class RssFeedReceiverServiceImpl implements RssFeedReceiverService {
+    public static final String RSS_FEED_URL = "https://feeds.simplecast.com/54nAGcIl";
     private final RestTemplate restTemplate;
 
     public RssFeedReceiverServiceImpl(RestTemplate restTemplate) {
@@ -15,7 +16,7 @@ public class RssFeedReceiverServiceImpl implements RssFeedReceiverService {
 
     @Override
     public String receiveLatestRssFeedAsString() {
-        ResponseEntity<String> responseEntity = restTemplate.getForEntity("https://feeds.simplecast.com/54nAGcIl", String.class);
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity(RSS_FEED_URL, String.class);
         if (responseEntity.getStatusCode().is2xxSuccessful()) {
             return responseEntity.getBody();
         }
