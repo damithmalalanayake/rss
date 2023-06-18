@@ -15,7 +15,7 @@ public class SchedulerService {
         this.rssFeedService = rssFeedService;
     }
 
-    @Scheduled(fixedRate = 15000)
+    @Scheduled(fixedRateString = "${scheduler.rss.receiver}")
     private void schedulerRssFeedReceiver() {
         log.info("scheduler => rss feed receiver started.");
         try {

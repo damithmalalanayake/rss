@@ -1,13 +1,12 @@
 package com.getgifted.rss;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest
-class RssApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
-
+@ActiveProfiles("test")
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+public class RssApplicationTests {
 }
