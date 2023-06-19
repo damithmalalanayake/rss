@@ -26,5 +26,12 @@ public class SchedulerService {
         log.info("scheduler => rss feed receiver ended.");
     }
 
+    @Scheduled(fixedRateString = "${scheduler.rss.cleanup}")
+    private void schedulerRssFeedCleaner() {
+        log.info("scheduler => rss feed cleaner started.");
+        rssFeedService.cleanupRssItems();
+        log.info("scheduler => rss feed cleaner ended.");
+    }
+
 
 }
